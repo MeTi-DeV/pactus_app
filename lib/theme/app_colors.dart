@@ -20,4 +20,9 @@ class AppColors {
 
 
   static const Color main_color2=Color(0xff22547B);
+
+  static const Color orenge_color2=Color(0xfffb8500);
+  static const Color white=Color(0xffffffff);
+  static const Color grey1=Color(0xffe5e5e5);
+  static const Color main_color=Color(0xff8d99ae);
 }
