@@ -8,6 +8,7 @@ final Widget child;
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
+     
         child: Center(child: Container(
           decoration: BoxDecoration(gradient: LinearGradient(
                 begin: Alignment.topLeft,

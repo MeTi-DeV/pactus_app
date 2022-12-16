@@ -29,6 +29,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  bip39: ^1.0.6
   cupertino_icons: ^1.0.2
   day_night_switcher: ^0.2.0+1
   flutter:
@@ -36,6 +37,7 @@ dependencies:
   get: ^4.6.5
   hive: ^2.2.3
   iconify_flutter: ^0.0.5
+  loading_animation_widget: ^1.2.0+4
   path_provider: ^2.0.11
   window_size:
     git:
