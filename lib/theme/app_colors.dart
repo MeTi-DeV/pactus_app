@@ -25,4 +25,21 @@ class AppColors {
   static const Color white=Color(0xffffffff);
   static const Color grey1=Color(0xffe5e5e5);
   static const Color main_color=Color(0xff8d99ae);
+  static List<Color> gradient=[
+    background_light_color1,
+    background_light_color2,
+    background_light_color3,
+    background_light_color4,
+    background_light_color5,
+    background_light_color6,
+    background_light_color7,
+    background_light_color8,
+    background_dark_color1,
+    background_dark_color2,
+    background_dark_color3,
+    background_dark_color4,
+    background_dark_color5,
+    background_dark_color6,
+    background_dark_color7,
+                ];
 }
