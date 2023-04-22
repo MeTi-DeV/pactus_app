@@ -10,6 +10,7 @@ import 'package:pactus_app/theme/app_colors.dart';
 
 import 'package:pactus_app/widgets/loader_widget.dart';
 import 'package:pactus_app/widgets/seed_generator_widget.dart';
+import 'package:pactus_app/widgets/seed_input_widget.dart';
 import 'package:pactus_app/widgets/wallet_password_widget.dart';
 import 'package:scaffold_gradient_background/scaffold_gradient_background.dart';
 
@@ -19,7 +20,6 @@ class CreateNewWalletScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(() {
-    
       return ScaffoldGradientBackground(
         gradient: LinearGradient(
           begin: Alignment.topLeft,
@@ -55,45 +55,59 @@ class CreateNewWalletScreen extends StatelessWidget {
                       horizontal: MediaQuery.of(context).size.width / 10,
                     ),
                     child: IntroductionScreen(
-                  
-                      showNextButton:(!logic.isValidate!.value&&logic.password_page_index==1)?false:(logic.isValidate!.value&&logic.password_page_index==1)?true:true,
+                      showNextButton: (!logic.isValidate!.value &&
+                              logic.page_index == 2)
+                          ? false
+                          : (logic.isValidate!.value && logic.page_index == 2)
+                              ? true
+                              : true,
                       onChange: (value) {
-                        if (logic.fromKey.currentState!.validate()) {
-                          logic.isValidate!.value=true;
+                        if (value==0) {
+                          logic.generateMnemonic();
+                          print(logic.randomMnemonic);
+                        }
+                        if (logic.fromKey.currentState?.validate() ?? false) {
+                          logic.isValidate!.value = true;
                         }
                         print(value);
-                        logic.password_page_index!.value = value;
+                        logic.page_index!.value = value;
                       },
-                    
-                      globalBackgroundColor: Colors.transparent,
-                      pages:[
-        PageViewModel(
-          title: '',
-          bodyWidget: Container(
-            child: SeedGeneratorWidget(seedKey: logic.randomMnemonic!),
-          ),
-        ),
-      
-        PageViewModel(
-            title: '',
-            bodyWidget: Container(
-                width: MediaQuery.of(context).size.width,
-                child: WalletPasswordWidget(
-                 logic: logic,
-                ))),      PageViewModel(
-          title: '',
-          bodyWidget: Container(
-            child: SeedGeneratorWidget(seedKey: logic.randomMnemonic!),
-          ),
-        ),
 
-      ],
+                      globalBackgroundColor: Colors.transparent,
+                      pages: [
+                        PageViewModel(
+                          title: '',
+                          bodyWidget: Container(
+                            child: SeedGeneratorWidget(
+                                seedKey: logic.randomMnemonic!),
+                          ),
+                        ),
+                        PageViewModel(
+                            title: '',
+                            bodyWidget: Container(
+                                width: MediaQuery.of(context).size.width,
+                                child: SeedInputWidget())),
+                        PageViewModel(
+                            title: '',
+                            bodyWidget: Container(
+                                width: MediaQuery.of(context).size.width,
+                                child: WalletPasswordWidget(
+                                  logic: logic,
+                                ))),
+                        PageViewModel(
+                          title: '',
+                          bodyWidget: Container(
+                            child: SeedGeneratorWidget(
+                                seedKey: logic.randomMnemonic!),
+                          ),
+                        ),
+                      ],
                       showDoneButton: true,
                       onDone: () {
                         Get.offAllNamed(Routes.MainScreen);
                       },
                       skip: null,
-                      
+
                       backStyle: ButtonStyle(
                         overlayColor:
                             MaterialStateProperty.all(Colors.transparent),
@@ -117,11 +131,11 @@ class CreateNewWalletScreen extends StatelessWidget {
                       back: Text('Previous'),
 
                       done: FittedBox(child: Text('Complete')),
-                      next:
-                      
-                       FittedBox(child: Text('Next')),
+                      next: FittedBox(child: Text('Next')),
                       // TextButton(onPressed: (){}, child: Text('Complete')),
+                    isProgressTap: false,
                       dotsDecorator: DotsDecorator(
+                        
                           size: const Size.square(10.0),
                           activeSize: const Size(10, 10.0),
                           activeColor: AppColors.main_color,

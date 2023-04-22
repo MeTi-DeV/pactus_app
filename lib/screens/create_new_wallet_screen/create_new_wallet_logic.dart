@@ -9,7 +9,7 @@ class CreateNewWalletLogic extends GetxController {
   GlobalKey<FormState> fromKey = GlobalKey<FormState>();
   TextEditingController password = TextEditingController();
   TextEditingController confirm = TextEditingController();
-  RxInt? password_page_index=0.obs;
+  RxInt? page_index = 0.obs;
   @override
   void onInit() {
     generateMnemonic();
@@ -20,6 +20,10 @@ class CreateNewWalletLogic extends GetxController {
     hasLoader!.value = true;
     randomMnemonic = await bip39.generateMnemonic();
     print(randomMnemonic);
+    List mnemonicList =
+        randomMnemonic!.split(" ");
+    print(mnemonicList[0]);
+    // print(randomMnemonic);
     hasLoader!.value = false;
   }
 }
