@@ -6,10 +6,14 @@ class CreateNewWalletLogic extends GetxController {
   String? randomMnemonic;
   RxBool? hasLoader = false.obs;
   RxBool? isValidate = false.obs;
+  RxBool? isValidateSeed = false.obs;
   GlobalKey<FormState> fromKey = GlobalKey<FormState>();
+  GlobalKey<FormState> mnemonicFormKey = GlobalKey<FormState>();
+  List<TextEditingController> ?seedController;
   TextEditingController password = TextEditingController();
   TextEditingController confirm = TextEditingController();
   RxInt? page_index = 0.obs;
+  List mnemonicList = [];
   @override
   void onInit() {
     generateMnemonic();
@@ -20,10 +24,11 @@ class CreateNewWalletLogic extends GetxController {
     hasLoader!.value = true;
     randomMnemonic = await bip39.generateMnemonic();
     print(randomMnemonic);
-    List mnemonicList =
-        randomMnemonic!.split(" ");
+    mnemonicList = randomMnemonic!.split(" ");
     print(mnemonicList[0]);
+    print(mnemonicList.length);
     // print(randomMnemonic);
     hasLoader!.value = false;
+    seedController = List.generate(12, (i) => TextEditingController());
   }
 }

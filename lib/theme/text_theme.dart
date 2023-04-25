@@ -4,6 +4,43 @@ import 'package:pactus_app/theme/app_colors.dart';
 
 ThemeData getAppThemeData() {
   return ThemeData(
+    
+      inputDecorationTheme: InputDecorationTheme(
+        
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(6),
+          borderSide: BorderSide(
+            color: Colors.redAccent.shade400,
+            width: 1,
+          ),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(6),
+          borderSide: BorderSide(
+            color: Colors.redAccent.shade400,
+            width: 1,
+          ),
+        ),
+        labelStyle: TextStyle(
+            color: Colors.grey.shade200,
+            fontWeight: FontWeight.w200,
+            fontSize: 14),
+        fillColor: Colors.white,
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(6),
+          borderSide: BorderSide(
+            color: AppColors.main_color,
+          ),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(6),
+          borderSide: BorderSide(
+            color: Colors.grey.shade700,
+            width: 1,
+          ),
+        ),
+        
+      ),
       textButtonTheme: TextButtonThemeData(
         style: ElevatedButton.styleFrom(
             backgroundColor: Colors.transparent,
@@ -14,59 +51,57 @@ ThemeData getAppThemeData() {
             disabledForegroundColor: AppColors.white),
       ),
       textTheme: TextTheme(
-        headline4: TextStyle(
+        headlineMedium: TextStyle(
           fontFamily: 'Poppins',
           fontSize: 34,
           fontWeight: FontWeight.w500,
         ),
-        headline2: TextStyle(
+        displayMedium: TextStyle(
           fontFamily: 'Poppins',
           fontSize: 34,
           fontWeight: FontWeight.w500,
         ),
-        headline3: TextStyle(
+        displaySmall: TextStyle(
           fontFamily: 'Poppins',
           fontSize: 30,
           fontWeight: FontWeight.bold,
         ),
-        headline5: TextStyle(
-          fontFamily: 'Poppins',
-          fontSize: 26,
-          // fontWeight: FontWeight.bold,
-          color: AppColors.white
-        ),
-        headline6: TextStyle(
+        headlineSmall: TextStyle(
+            fontFamily: 'Poppins',
+            fontSize: 26,
+            // fontWeight: FontWeight.bold,
+            color: AppColors.white),
+        titleLarge: TextStyle(
           fontFamily: 'Poppins',
           fontSize: 24,
           fontWeight: FontWeight.w500,
         ),
-        subtitle1: TextStyle(
+        titleMedium: TextStyle(
           fontFamily: 'Poppins',
           fontSize: 16,
-             color: AppColors.white,
+          color: AppColors.white,
           fontWeight: FontWeight.normal,
         ),
-        overline: TextStyle(
+        labelSmall: TextStyle(
           fontFamily: 'Poppins',
           fontSize: 10,
           fontWeight: FontWeight.normal,
         ),
-        caption: TextStyle(
-          fontFamily: 'Poppins',
-          fontSize: 12,
-          fontWeight: FontWeight.normal,
-          color: AppColors.grey1
-        ),
-        button: TextStyle(
+        bodySmall: TextStyle(
+            fontFamily: 'Poppins',
+            fontSize: 12,
+            fontWeight: FontWeight.normal,
+            color: AppColors.grey1),
+        labelLarge: TextStyle(
           fontFamily: 'Poppins',
           fontSize: 14,
           fontWeight: FontWeight.w500,
         ),
-        bodyText1: TextStyle(
+        bodyLarge: TextStyle(
           fontFamily: 'Poppins',
           fontSize: 14,
         ),
-        bodyText2: TextStyle(
+        bodyMedium: TextStyle(
           fontFamily: 'Poppins',
           color: AppColors.white,
           fontSize: 16,

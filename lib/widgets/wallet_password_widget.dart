@@ -225,7 +225,7 @@ class WalletPasswordWidget extends StatelessWidget {
                             logic!.isValidate!.value = false;
                           }
                         },
-                        // autovalidateMode: AutovalidateMode.onUserInteraction,
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
                         validator: (value) {
                           if (value != logic!.password.text) {
                             return 'Your password and confirmation password do not match.';
@@ -256,39 +256,7 @@ class WalletPasswordWidget extends StatelessWidget {
                                         color: Colors.grey.shade700),
                                   ),
                           ),
-                          focusedErrorBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(6),
-                            borderSide: BorderSide(
-                              color: Colors.redAccent.shade400,
-                              width: 1,
-                            ),
-                          ),
-                          errorBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(6),
-                            borderSide: BorderSide(
-                              color: Colors.redAccent.shade400,
-                              width: 1,
-                            ),
-                          ),
-                          labelStyle: TextStyle(
-                              color: Colors.grey.shade200,
-                              fontWeight: FontWeight.w200,
-                              fontSize: 14),
-                          labelText: "Enter Password",
-                          fillColor: Colors.white,
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(6),
-                            borderSide: BorderSide(
-                              color: AppColors.main_color,
-                            ),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(6),
-                            borderSide: BorderSide(
-                              color: Colors.grey.shade700,
-                              width: 1,
-                            ),
-                          ),
+                          labelText: "Confirm Password",
                         ),
                       ),
                     ],

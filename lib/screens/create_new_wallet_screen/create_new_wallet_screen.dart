@@ -55,19 +55,32 @@ class CreateNewWalletScreen extends StatelessWidget {
                       horizontal: MediaQuery.of(context).size.width / 10,
                     ),
                     child: IntroductionScreen(
-                      showNextButton: (!logic.isValidate!.value &&
-                              logic.page_index == 2)
+                      showNextButton: (logic.isValidateSeed!.value==false &&
+                              logic.page_index == 1)
                           ? false
-                          : (logic.isValidate!.value && logic.page_index == 2)
+
+                          : (logic.isValidateSeed!.value==true && logic.page_index == 1)
                               ? true
-                              : true,
+                              // : (!logic.isValidate!.value &&
+                              //         logic.page_index == 2)
+                              //     ? false
+                              //     : (logic.isValidate!.value &&
+                              //             logic.page_index == 2)
+                              //         ? true
+                                      : true,
                       onChange: (value) {
-                        if (value==0) {
+                        if (value == 0) {
+                          logic.isValidateSeed!.value = false;
                           logic.generateMnemonic();
+                          
                           print(logic.randomMnemonic);
                         }
                         if (logic.fromKey.currentState?.validate() ?? false) {
                           logic.isValidate!.value = true;
+                        }
+                        if (logic.mnemonicFormKey.currentState?.validate() ??
+                            false) {
+                          logic.isValidateSeed!.value = true;
                         }
                         print(value);
                         logic.page_index!.value = value;
@@ -86,7 +99,9 @@ class CreateNewWalletScreen extends StatelessWidget {
                             title: '',
                             bodyWidget: Container(
                                 width: MediaQuery.of(context).size.width,
-                                child: SeedInputWidget())),
+                                child: SeedInputWidget(
+                                  logic: logic,
+                                ))),
                         PageViewModel(
                             title: '',
                             bodyWidget: Container(
@@ -133,9 +148,8 @@ class CreateNewWalletScreen extends StatelessWidget {
                       done: FittedBox(child: Text('Complete')),
                       next: FittedBox(child: Text('Next')),
                       // TextButton(onPressed: (){}, child: Text('Complete')),
-                    isProgressTap: false,
+                      isProgressTap: false,
                       dotsDecorator: DotsDecorator(
-                        
                           size: const Size.square(10.0),
                           activeSize: const Size(10, 10.0),
                           activeColor: AppColors.main_color,
