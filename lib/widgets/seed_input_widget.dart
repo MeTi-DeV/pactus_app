@@ -96,318 +96,54 @@ class SeedInputWidget extends StatelessWidget {
             ),
             Form(
               key: logic.mnemonicFormKey,
-              child: Column(
-                children: [
-                  Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: List.generate(6, (index) {
-                        return SizedBox(
-                          width: 120,
-                          child: TextFormField(
-                            autovalidateMode:
-                                AutovalidateMode.onUserInteraction,
-                            validator: (value) {
-                              if (value != logic.mnemonicList[index]) {
-                                print(value);
-                                return '';
-                              }
-                              return null;
-                            },
-                            onChanged: (value) {
-                              
-                              print(logic.mnemonicList[index]);
-                            },
-                            toolbarOptions: ToolbarOptions(
-                              copy: true,
-                              cut: true,
-                              paste: false,
-                              selectAll: false,
-                            ),
-                            decoration: InputDecoration(
-                              helperText: '',
-                              labelText: "${index + 1} .",
-                            ),
-                            controller: logic.seedController![index],
-                            cursorColor: AppColors.main_color,
-                          ),
-                        );
-                      })),
-                  SizedBox(
-                    height: KSize.geHeight(context, 32),
-                  ),
-                  Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: List.generate(6, (index) {
-                        return SizedBox(
-                          width: 120,
-                          child: TextFormField(
-                            autovalidateMode:
-                                AutovalidateMode.onUserInteraction,
-                            validator: (value) {
-                              if (value != logic.mnemonicList[index + 6]) {
-                                print(value);
-                                return '';
-                              }
-                              return null;
-                            },
-                            onChanged: (value) {
-                           
-
-                              print(logic.mnemonicList[index + 6]);
-                            },
-                            toolbarOptions: ToolbarOptions(
-                              copy: true,
-                              cut: true,
-                              paste: false,
-                              selectAll: false,
-                            ),
-                            decoration: InputDecoration(
-                              helperText: '',
-                              labelText: "${index + 7} .",
-                            ),
-                            controller: logic.seedController![index + 6],
-                            cursorColor: AppColors.main_color,
-                          ),
-                        );
-                      })
-                      //  [
-
-                      // SizedBox(
-                      //   width: 120,
-                      //   child: TextFormField(
-                      //     autovalidateMode: AutovalidateMode.onUserInteraction,
-                      //     validator: (value) {
-                      //       if (value != logic.mnemonicList[1]) {}
-                      //       return null;
-                      //     },
-                      //     toolbarOptions: ToolbarOptions(
-                      //       copy: false,
-                      //       cut: false,
-                      //       paste: false,
-                      //       selectAll: false,
-                      //     ),
-                      //     controller: logic.seedText2,
-                      //     cursorColor: AppColors.main_color,
-                      //     decoration: InputDecoration(
-                      //       labelText: "2 .",
-                      //     ),
-                      //   ),
-                      // ),
-                      // SizedBox(
-                      //   width: 120,
-                      //   child: TextFormField(
-                      //     autovalidateMode: AutovalidateMode.onUserInteraction,
-                      //     validator: (value) {
-                      //       if (value != logic.mnemonicList[2]) {}
-                      //       return null;
-                      //     },
-                      //     toolbarOptions: ToolbarOptions(
-                      //       copy: true,
-                      //       cut: true,
-                      //       paste: false,
-                      //       selectAll: false,
-                      //     ),
-                      //     controller: logic.seedText3,
-                      //     cursorColor: AppColors.main_color,
-                      //     decoration: InputDecoration(
-                      //       labelText: "3 .",
-                      //     ),
-                      //   ),
-                      // ),
-                      // SizedBox(
-                      //   width: 120,
-                      //   child: TextFormField(
-                      //     autovalidateMode: AutovalidateMode.onUserInteraction,
-                      //     validator: (value) {
-                      //       if (value != logic.mnemonicList[3]) {}
-                      //       return null;
-                      //     },
-                      //     toolbarOptions: ToolbarOptions(
-                      //       copy: true,
-                      //       cut: true,
-                      //       paste: false,
-                      //       selectAll: false,
-                      //     ),
-                      //     controller: logic.seedText4,
-                      //     cursorColor: AppColors.main_color,
-                      //     decoration: InputDecoration(
-                      //       labelText: "4 .",
-                      //     ),
-                      //   ),
-                      // ),
-                      // SizedBox(
-                      //   width: 120,
-                      //   child: TextFormField(
-                      //     autovalidateMode: AutovalidateMode.onUserInteraction,
-                      //     validator: (value) {
-                      //       if (value != logic.mnemonicList[4]) {}
-                      //       return null;
-                      //     },
-                      //     toolbarOptions: ToolbarOptions(
-                      //       copy: true,
-                      //       cut: true,
-                      //       paste: false,
-                      //       selectAll: false,
-                      //     ),
-                      //     controller: logic.seedText5,
-                      //     cursorColor: AppColors.main_color,
-                      //     decoration: InputDecoration(
-                      //       labelText: "5 .",
-                      //     ),
-                      //   ),
-                      // ),
-                      // SizedBox(
-                      //   width: 120,
-                      //   child: TextFormField(
-                      //     autovalidateMode: AutovalidateMode.onUserInteraction,
-                      //     validator: (value) {
-                      //       if (value != logic.mnemonicList[5]) {}
-                      //       return null;
-                      //     },
-                      //     toolbarOptions: ToolbarOptions(
-                      //       copy: true,
-                      //       cut: true,
-                      //       paste: false,
-                      //       selectAll: false,
-                      //     ),
-                      //     controller: logic.seedText6,
-                      //     cursorColor: AppColors.main_color,
-                      //     decoration: InputDecoration(
-                      //       labelText: "6 .",
-                      //     ),
-                      //   ),
-                      // ),
-                      // ],
-                      // [
-                      //   SizedBox(
-                      //     width: 120,
-                      //     child: TextFormField(
-                      //       autovalidateMode: AutovalidateMode.onUserInteraction,
-                      //       validator: (value) {
-                      //         if (value != logic.mnemonicList[6]) {}
-                      //         return null;
-                      //       },
-                      //       toolbarOptions: ToolbarOptions(
-                      //         copy: true,
-                      //         cut: true,
-                      //         paste: false,
-                      //         selectAll: false,
-                      //       ),
-                      //       controller: logic.seedText7,
-                      //       cursorColor: AppColors.main_color,
-                      //       decoration: InputDecoration(
-                      //         labelText: "7 .",
-                      //       ),
-                      //     ),
-                      //   ),
-                      //   SizedBox(
-                      //     width: 120,
-                      //     child: TextFormField(
-                      //       autovalidateMode: AutovalidateMode.onUserInteraction,
-                      //       validator: (value) {
-                      //         if (value != logic.mnemonicList[7]) {}
-                      //         return null;
-                      //       },
-                      //       toolbarOptions: ToolbarOptions(
-                      //         copy: false,
-                      //         cut: false,
-                      //         paste: false,
-                      //         selectAll: false,
-                      //       ),
-                      //       controller: logic.seedText8,
-                      //       cursorColor: AppColors.main_color,
-                      //       decoration: InputDecoration(
-                      //         labelText: "8 .",
-                      //       ),
-                      //     ),
-                      //   ),
-                      //   SizedBox(
-                      //     width: 120,
-                      //     child: TextFormField(
-                      //       autovalidateMode: AutovalidateMode.onUserInteraction,
-                      //       validator: (value) {
-                      //         if (value != logic.mnemonicList[8]) {}
-                      //         return null;
-                      //       },
-                      //       toolbarOptions: ToolbarOptions(
-                      //         copy: true,
-                      //         cut: true,
-                      //         paste: false,
-                      //         selectAll: false,
-                      //       ),
-                      //       controller: logic.seedText9,
-                      //       cursorColor: AppColors.main_color,
-                      //       decoration: InputDecoration(
-                      //         labelText: "9 .",
-                      //       ),
-                      //     ),
-                      //   ),
-                      //   SizedBox(
-                      //     width: 120,
-                      //     child: TextFormField(
-                      //       autovalidateMode: AutovalidateMode.onUserInteraction,
-                      //       validator: (value) {
-                      //         if (value != logic.mnemonicList[9]) {}
-                      //         return null;
-                      //       },
-                      //       toolbarOptions: ToolbarOptions(
-                      //         copy: true,
-                      //         cut: true,
-                      //         paste: false,
-                      //         selectAll: false,
-                      //       ),
-                      //       controller: logic.seedText10,
-                      //       cursorColor: AppColors.main_color,
-                      //       decoration: InputDecoration(
-                      //         labelText: "10 .",
-                      //       ),
-                      //     ),
-                      //   ),
-                      //   SizedBox(
-                      //     width: 120,
-                      //     child: TextFormField(
-                      //       autovalidateMode: AutovalidateMode.onUserInteraction,
-                      //       validator: (value) {
-                      //         if (value != logic.mnemonicList[10]) {}
-                      //         return null;
-                      //       },
-                      //       toolbarOptions: ToolbarOptions(
-                      //         copy: true,
-                      //         cut: true,
-                      //         paste: false,
-                      //         selectAll: false,
-                      //       ),
-                      //       controller: logic.seedText11,
-                      //       cursorColor: AppColors.main_color,
-                      //       decoration: InputDecoration(
-                      //         labelText: "11 .",
-                      //       ),
-                      //     ),
-                      //   ),
-                      //   SizedBox(
-                      //     width: 120,
-                      //     child: TextFormField(
-                      //       autovalidateMode: AutovalidateMode.onUserInteraction,
-                      //       validator: (value) {
-                      //         if (value != logic.mnemonicList[11]) {}
-                      //         return null;
-                      //       },
-                      //       toolbarOptions: ToolbarOptions(
-                      //         copy: true,
-                      //         cut: true,
-                      //         paste: false,
-                      //         selectAll: false,
-                      //       ),
-                      //       controller: logic.seedText12,
-                      //       cursorColor: AppColors.main_color,
-                      //       decoration: InputDecoration(
-                      //         labelText: "12 .",
-                      //       ),
-                      //     ),
-                      //   ),
-                      // ],
+              child: Container(
+              
+                child: GridView.builder(
+                  shrinkWrap: true,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 6,
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 10,
+                      childAspectRatio: 3 / 2),
+                  itemCount: logic.seedController!.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return SizedBox(
+                      width: 120,
+                      child: TextFormField(
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
+                        validator: (value) {
+                          if (value != logic.mnemonicList[index]) {
+                            print(value);
+                            return '';
+                          }
+                          return null;
+                        },
+                        onChanged: (value) {
+                          
+                           logic.isValidateSeed!.value=false;
+                          if (logic.mnemonicFormKey.currentState!.validate()==true) {
+                            logic.isValidateSeed!.value=true;
+                          }else{
+                           logic.isValidateSeed!.value=false; 
+                          }
+                          print(logic.mnemonicList[index]);
+                        },
+                        toolbarOptions: ToolbarOptions(
+                          copy: true,
+                          cut: true,
+                          paste: false,
+                          selectAll: false,
+                        ),
+                        decoration: InputDecoration(
+                          helperText: '',
+                          labelText: "${index + 1} .",
+                        ),
+                        controller: logic.seedController![index],
+                        cursorColor: AppColors.main_color,
                       ),
-                ],
+                    );
+                  },
+                ),
               ),
             )
           ],

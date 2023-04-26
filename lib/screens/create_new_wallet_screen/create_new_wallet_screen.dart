@@ -55,11 +55,11 @@ class CreateNewWalletScreen extends StatelessWidget {
                       horizontal: MediaQuery.of(context).size.width / 10,
                     ),
                     child: IntroductionScreen(
-                      showNextButton: (logic.isValidateSeed!.value==false &&
+                      showNextButton: (logic.isValidateSeed!.value == false &&
                               logic.page_index == 1)
                           ? false
-
-                          : (logic.isValidateSeed!.value==true && logic.page_index == 1)
+                          : (logic.isValidateSeed!.value == true &&
+                                  logic.page_index == 1)
                               ? true
                               // : (!logic.isValidate!.value &&
                               //         logic.page_index == 2)
@@ -67,21 +67,22 @@ class CreateNewWalletScreen extends StatelessWidget {
                               //     : (logic.isValidate!.value &&
                               //             logic.page_index == 2)
                               //         ? true
-                                      : true,
+                              : true,
                       onChange: (value) {
                         if (value == 0) {
+                          // logic.mnemonicFormKey.currentState?.reassemble();
                           logic.isValidateSeed!.value = false;
                           logic.generateMnemonic();
-                          
+
                           print(logic.randomMnemonic);
                         }
                         if (logic.fromKey.currentState?.validate() ?? false) {
                           logic.isValidate!.value = true;
                         }
-                        if (logic.mnemonicFormKey.currentState?.validate() ??
-                            false) {
-                          logic.isValidateSeed!.value = true;
-                        }
+                        // if (logic.mnemonicFormKey.currentState?.validate() ??
+                        //     false) {
+                        //   logic.isValidateSeed!.value = true;
+                        // }
                         print(value);
                         logic.page_index!.value = value;
                       },
