@@ -61,13 +61,13 @@ class CreateNewWalletScreen extends StatelessWidget {
                           : (logic.isValidateSeed!.value == true &&
                                   logic.page_index == 1)
                               ? true
-                              // : (!logic.isValidate!.value &&
-                              //         logic.page_index == 2)
-                              //     ? false
-                              //     : (logic.isValidate!.value &&
-                              //             logic.page_index == 2)
-                              //         ? true
-                              : true,
+                              : (!logic.isValidate!.value &&
+                                      logic.page_index == 2)
+                                  ? false
+                                  : (logic.isValidate!.value &&
+                                          logic.page_index == 2)
+                                      ? true
+                                      : true,
                       onChange: (value) {
                         if (value == 0) {
                           // logic.mnemonicFormKey.currentState?.reassemble();
@@ -93,7 +93,7 @@ class CreateNewWalletScreen extends StatelessWidget {
                           title: '',
                           bodyWidget: Container(
                             child: SeedGeneratorWidget(
-                                seedKey: logic.randomMnemonic!),
+                                seedKey: logic.randomMnemonic ?? ''),
                           ),
                         ),
                         PageViewModel(

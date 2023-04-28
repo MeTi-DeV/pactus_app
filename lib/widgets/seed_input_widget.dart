@@ -152,9 +152,3 @@ class SeedInputWidget extends StatelessWidget {
 }
 
 class PasteIntent extends Intent {}
-// class CustomTextEditingController extends TextEditingController {
-//   final int position;
-// 
-//   CustomTextEditingController(this.position);
-//   
-// }
